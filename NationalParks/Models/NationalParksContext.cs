@@ -13,7 +13,7 @@ namespace NationalParks.Models
         public DbSet<Park> Parks { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
-{
+		{
 			builder.Entity<Park>()
 				.HasData(
 					new Park { ParkId = 1, Name = "Yosemite National Park", State = "California", StateOrNational = "National" },
@@ -24,7 +24,7 @@ namespace NationalParks.Models
 					new Park { ParkId = 6, Name = "Niagara Falls State Park", State = "New York", StateOrNational = "State" },
 					new Park { ParkId = 7, Name = "Smith Rock State Park", State = "Oregon", StateOrNational = "State" },
 					new Park { ParkId = 8, Name = "Shasta State Historic Park", State = "California", StateOrNational = "State" }
-		);
-}
+			);
+		}
     }
 }

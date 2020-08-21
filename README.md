@@ -30,6 +30,7 @@ An API to track National and State Parks with full CRUD functionality.
 * For Windows users, download MySQL here: https://dev.mysql.com/downloads/file/?id=484919
 * You will need a API development tool like Postman or a way to make API requests: https://www.postman.com/downloads/
 * to clone this content, copy the url provided by the 'clone or download' button in GitHub
+
 * Navigate to the newly created `NationalParks.Solution` directory
 * Navigate to the `NationalParks` sub-directory and run `dotnet restore`
 * Run `dotnet ef database update` in the terminal
