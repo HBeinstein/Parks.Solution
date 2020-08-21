@@ -26,8 +26,8 @@
 * For Windows users, download MySQL here: https://dev.mysql.com/downloads/file/?id=484919
 * You will need a API development tool like Postman or a way to make API requests: https://www.postman.com/downloads/
 * to clone this content, copy the url provided by the 'clone or download' button in GitHub
-* Navigate to the newly created `MessageBoard.Solution` folder
-* Navigate to the `MessageBoard` subfolder and run `dotnet restore`
+* Navigate to the newly created `NationalParks.Solution` directory
+* Navigate to the `NationalParks` sub-directory and run `dotnet restore`
 * Run `dotnet ef database update` in the terminal
 * Run `dotnet build` to build the app and `dotnet run` to run it
 * The web app will now be available on `http://localhost:5000/` in your browser

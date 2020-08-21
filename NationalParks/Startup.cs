@@ -1,12 +1,12 @@
-﻿using MessageBoard.Models;
+﻿using NationalParks.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Newtonsoft.Json;
-namespace MessageBoard.Solution
+
+namespace NationalParks
 {
     public class Startup
     {
@@ -20,7 +20,7 @@ namespace MessageBoard.Solution
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<MessageBoardContext>(opt =>
+            services.AddDbContext<NationalParksContext>(opt =>
                 opt.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
