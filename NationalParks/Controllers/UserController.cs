@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
-using MessageBoard.Services;
-using MessageBoard.Entities;
+using NationalParks.Services;
+using NationalParks.Entities;
 
 namespace NationalParks.Controllers
 {

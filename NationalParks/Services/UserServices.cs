@@ -6,10 +6,10 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using MessageBoard.Entities;
-using MessageBoard.Helpers;
+using NationalParks.Entities;
+using NationalParks.Helpers;
 
-namespace MessageBoard.Services
+namespace NationalParks.Services
 {
     public interface IUserService
     {
