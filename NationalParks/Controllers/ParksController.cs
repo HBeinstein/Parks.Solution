@@ -19,9 +19,21 @@ namespace NationalParks.Controllers
 
     // GET api/parks
     [HttpGet]
-    public ActionResult<IEnumerable<Park>> Get()
+    public ActionResult<IEnumerable<Park>> Get(string state, string stateOrNational)
     {
-      return _db.Parks.ToList();
+      var query = _db.Parks.AsQueryable();
+
+      if (state != null)
+      {
+        query = query.Where(entry => entry.State == state);
+      }
+
+      if (stateOrNational != null)
+      {
+        query = query.Where(entry => entry.StateOrNational == stateOrNational);
+      }
+
+      return query.ToList();
     }
 
     // POST api/parks
