@@ -3,20 +3,24 @@
 #### Hannah Beinstein
 
 ## Description
-
-
-
-## User Stories
-
-
+An API to track National and State Parks with full CRUD functionality.
 
 ## Specifications
 
-| Spec | Input | Output |
-| :---: | :---: | :---: |
-|  |  |
 
-## Swagger API Documentation
+| Spec | Input | Output |
+| :-------------      | :------------- | :------------- |
+| 1. Program will display all parks in database | GET | "Yosemite National Park, California, National", "Zion National Park, Utah, National" |
+| 2. Program will display details of a specific park in database | GET/Parks/3 | "Zion National Park, Utah, National" |
+| 3. Program will add additional parks to database | POST "Smith Rock State Park, Oregon, State" | Updated Database: "Yosemite National Park, California, National", "Zion National Park, Utah, National", "Smith Rock State Park, Oregon, State" |
+| 4. Program will update specified park in database | PUT "Smith Rock State Park, Oregon, National" | Updated Database: "Yosemite National Park, California, National", "Zion National Park, Utah, National", "Smith Rock State Park, Oregon, National" |
+| 5. Program will delete specified park from database | DELETE "Smith Rock State Park, Oregon, State" | Updated Database: "Yosemite National Park, California, National", "Zion National Park, Utah, National" |
+| 6. Program will return all parks in a specific state | GET/parks/?state=california | "Yosemite National Park, California, National" |
+| 7. Program will return all National Parks or all State Parks | GET/parks/?stateOrNational=state | "Smith Rock State Park, Oregon, State"|
+| 8. Program will return all National Parks or State Parks in a specific state | GET/parks/?stateOrNational=state&state=oregon | "Smith Rock State Park, Oregon, State"|
+
+
+<!-- ## Swagger API Documentation -->
 
 
 ## Setup and Installation
