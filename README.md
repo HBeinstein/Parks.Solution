@@ -7,7 +7,6 @@ An API to track National and State Parks with full CRUD functionality.
 
 ## Specifications
 
-
 | Spec | Input | Output |
 | :-------------      | :------------- | :------------- |
 | 1. Program will display all parks in database | GET | "Yosemite National Park, California, National", "Zion National Park, Utah, National" |
@@ -19,37 +18,59 @@ An API to track National and State Parks with full CRUD functionality.
 | 7. Program will return all National Parks or all State Parks | GET/parks/?stateOrNational=state | "Smith Rock State Park, Oregon, State"|
 | 8. Program will return all National Parks or State Parks in a specific state | GET/parks/?stateOrNational=state&state=oregon | "Smith Rock State Park, Oregon, State"|
 
-
-<!-- ## Swagger API Documentation -->
-
-
 ## Setup and Installation
 
-* .NET Core 2.2 will need to be installed, it can be found here https://dotnet.microsoft.com/download/dotnet-core/2.2
-* For Mac users, download MySQL here: https://dev.mysql.com/downloads/file/?id=484914
-* For Windows users, download MySQL here: https://dev.mysql.com/downloads/file/?id=484919
-* You will need a API development tool like Postman or a way to make API requests: https://www.postman.com/downloads/
-* to clone this content, copy the url provided by the 'clone or download' button in GitHub
+* Download the project from its Github repository here: https://github.com/HBeinstein/Parks.Solution.
+* Make sure you have .NET Core installed. If you don't, it can be found here https://dotnet.microsoft.com/download/dotnet-core/2.2
+* Mac users, download MySQL here: https://dev.mysql.com/downloads/file/?id=484914
+* Windows users, download MySQL here: https://dev.mysql.com/downloads/file/?id=484919
+* To make requests, use an API development tool like Postman: https://www.postman.com/downloads/
 
-* Navigate to the newly created `NationalParks.Solution` directory
-* Navigate to the `NationalParks` sub-directory and run `dotnet restore`
-* Run `dotnet ef database update` in the terminal
+_Once the project is downloaded:_
+* Open in your code editor of choice
+* Navigate to the `NationalParks.Solution` directory
+* Navigate to the `NationalParks` sub-directory and run `dotnet restore` to install all dependencies
+* Run `dotnet ef database update` in the terminal to create your database
 * Run `dotnet build` to build the app and `dotnet run` to run it
-* The web app will now be available on `http://localhost:5000/` in your browser
-* You will need to get the JWT Authentication Token, Send the following code in the RAW section of your API request body
+* The project will now be available on `http://localhost:5000/` in your browser. Once you've started your server, you'll be able to make API calls in Postman. 
+* Before you can access any of the API's CRUD methods, you'll need to get a JWT authentication token by making the following requests in Postman:
 
-  ![Request Body](UserAuthRequest.PNG)  
+* First make a POST request to http://localhost:5000/users/authenticate. Be sure to include the following user credentials in the request body:
+  ![Request Body](Authenticate.PNG)  
 
-  ![Response Body](AuthResponseBody.PNG)
-* Copy the Token from the Value field of the Token Key from the response body of your request and attach it to the Bearer section of the header section of any requests made to API paths requiring Authentication
-
+* Copy the Token value from the response body of your request. 
   ![Bearer Token](BearerTokenLocation.PNG)
+
+* Under the Postman "Authorization" tab, select "Bearer Token" from the type options, and paste your token value in the "token" box to the right. Be sure to include this authorization token when making requests to the API-- any requests made without authorization will return a 401 Unauthorized error message.
+  ![Response Body](BearerToken.PNG)
+
+* Use the following URLs to access the API:
+```
+GET: http://localhost:5000/api/parks
+POST: http://localhost:5000/api/parks
+GET(DETAILS): http://localhost:5000/api/parks/{id}
+PUT: http://localhost:5000/api/parks/{id}
+DELETE: http://localhost:5000/api/parks/{id}
+```
+
+* You can filter your results by including the following parameters in your requests (add these to the end of your request URL). You can use multiple parameters by including a "&" between parameters in any request URL.
+```
+To filter by state, append: ?state={state name}
+
+To show only State or National parks, append: ?stateornational={state} or ?stateornational={national}
+```
+
+* Example Request:
+  ![Response Body](ExampleRequest.PNG)
+
+* Example Result:
+  ![Response Body](ExampleResult.PNG)
 
 ## Tech used
 
 * C#
 * ASP.NET MVC
-* Entity Framework Core
+* EFC
 * MYSQL
 
 ### License
