@@ -1,4 +1,4 @@
-# National Parks API
+# Parks API
 
 #### Hannah Beinstein
 
@@ -36,13 +36,13 @@ _Once the project is downloaded:_
 * Before you can access any of the API's CRUD methods, you'll need to get a JWT authentication token by making the following requests in Postman:
 
 * First make a POST request to http://localhost:5000/users/authenticate. Be sure to include the following user credentials in the request body:
-  ![Request Body](Authenticate.PNG)  
+  ![Request Body](IMG/Authenticate.PNG)  
 
 * Copy the Token value from the response body of your request. 
-  ![Bearer Token](BearerTokenLocation.PNG)
+  ![Bearer Token](IMG/BearerTokenLocation.PNG)
 
 * Under the Postman "Authorization" tab, select "Bearer Token" from the type options, and paste your token value in the "token" box to the right. Be sure to include this authorization token when making requests to the API-- any requests made without authorization will return a 401 Unauthorized error message.
-  ![Response Body](BearerToken.PNG)
+  ![Response Body](IMG/BearerToken.PNG)
 
 * Use the following URLs to access the API:
 ```
@@ -61,10 +61,10 @@ To show only State or National parks, append: ?stateornational={state} or ?state
 ```
 
 * Example Request:
-  ![Response Body](ExampleRequest.PNG)
+  ![Response Body](IMG/ExampleRequest.PNG)
 
 * Example Result:
-  ![Response Body](ExampleResult.PNG)
+  ![Response Body](IMG/ExampleResult.PNG)
 
 ## Tech used
 
