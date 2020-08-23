@@ -42,7 +42,7 @@ _Once the project is downloaded:_
   ![TokenLocation](/IMG/BearerTokenLocation.png)
 
 * Under the Postman "Authorization" tab, select "Bearer Token" from the type options, and paste your token value in the "token" box to the right. Be sure to include this authorization token when making requests to the API-- any requests made without authorization will return a 401 Unauthorized error message.
-  ![BearerToken](IMG/BearerToken.png)
+  ![BearerToken](/IMG/BearerToken.png)
 
 * Use the following URLs to access the API:
 ```
@@ -61,10 +61,10 @@ To show only State or National parks, append: ?stateornational={state} or ?state
 ```
 
 * Example Request:
-  ![ExampleRequest](IMG/ExampleRequest.PNG)
+  ![ExampleRequest](/IMG/ExampleRequest.png)
 
 * Example Result:
-  ![ExampleResult](IMG/ExampleResult.PNG)
+  ![ExampleResult](/IMG/ExampleResult.png)
 
 ## Tech used
 
