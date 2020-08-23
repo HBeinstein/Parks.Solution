@@ -20,20 +20,14 @@ namespace NationalParks.Solution
             Configuration = configuration;
         }
 
-        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+        // readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors(options => 
-            {
-                options.AddPolicy(MyAllowSpecificOrigins, 
-                builder => 
-                {
-                    builder.WithOrigins("http://");
-                });
-            });
+            services.AddCors();
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             // configure strongly typed settings objects
             var appSettingsSection = Configuration.GetSection("AppSettings");
@@ -59,17 +53,11 @@ namespace NationalParks.Solution
                     ValidateAudience = false
                 };
             });
-            services.AddApiVersioning(o =>
-            {
-                o.ReportApiVersions = true;
-                o.AssumeDefaultVersionWhenUnspecified = true;
-                o.DefaultApiVersion = new ApiVersion(1, 0);
-            });
 
             // configure DI for application services
             services.AddScoped<IUserService, UserService>();
 
-            services.AddDbContext<NationalParks>(opt =>
+            services.AddDbContext<NationalParksContext>(opt =>
                 opt.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
@@ -77,16 +65,6 @@ namespace NationalParks.Solution
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            // Enable middleware to serve generated Swagger as a JSON endpoint.
-            app.UseSwagger();
-
-            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
-            // specifying the Swagger JSON endpoint.
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "NationalParks API V1");
-            });
-
             // global cors policy
             app.UseCors(x => x
                 .AllowAnyOrigin()

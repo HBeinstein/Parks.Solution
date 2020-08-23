@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace NationalParks
+namespace NationalParks.Solution
 {
     public class Program
     {
@@ -20,7 +20,6 @@ namespace NationalParks
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
-                .UseUrls("http://localhost:4000")
-                .Build();
+                .UseUrls("http://localhost:5000");
     }
 }

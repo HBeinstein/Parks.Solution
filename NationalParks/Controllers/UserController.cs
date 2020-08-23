@@ -8,7 +8,7 @@ namespace NationalParks.Controllers
   [Authorize]
   [ApiController]
   [Route("[controller]")]
-  public class NationalParksController : ControllerBase
+  public class UsersController : ControllerBase
   {
     private IUserService _userService;
 
@@ -22,7 +22,7 @@ namespace NationalParks.Controllers
     [HttpPost("authenticate")]
     public IActionResult Authenticate([FromBody]User userParam)
     {
-      var user = _userService.Authenticate(userParam.UserName, userParam.Password);
+      var user = _userService.Authenticate(userParam.Username, userParam.Password);
 
       if (user == null)
       {

@@ -22,8 +22,8 @@ namespace NationalParks.Services
         // users hardcoded for simplicity, store in a db with hashed passwords in production applications
         private List<User> _users = new List<User>
         { 
-            new User { Id = 1, FirstName = "First", LastName = "Last", UserName = "test", Password = "test" },
-            new User { Id = 2, FirstName = "Hannah", LastName = "Beinstein", UserName = "hcb", Password = "password" }
+            new User { Id = 1, FirstName = "First", LastName = "Last", Username = "test", Password = "test" },
+            new User { Id = 2, FirstName = "Hannah", LastName = "Beinstein", Username = "hcb", Password = "password" }
         };
 
         private readonly AppSettings _appSettings;
@@ -35,7 +35,7 @@ namespace NationalParks.Services
 
         public User Authenticate(string username, string password)
         {
-            var user = _users.SingleOrDefault(x => x.UserName == username && x.Password == password);
+            var user = _users.SingleOrDefault(x => x.Username == username && x.Password == password);
 
             // return null if user not found
             if (user == null)
