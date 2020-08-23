@@ -36,10 +36,10 @@ _Once the project is downloaded:_
 * Before you can access any of the API's CRUD methods, you'll need to get a JWT authentication token by making the following requests in Postman:
 
 * First make a POST request to http://localhost:5000/users/authenticate. Be sure to include the following user credentials in the request body:
-  ![Request Body](IMG/Authenticate.PNG)  
+  ![Request Body](./IMG/Authenticate.PNG)  
 
 * Copy the Token value from the response body of your request. 
-  ![Bearer Token](IMG/BearerTokenLocation.PNG)
+  ![Bearer Token](./IMG/BearerTokenLocation.PNG)
 
 * Under the Postman "Authorization" tab, select "Bearer Token" from the type options, and paste your token value in the "token" box to the right. Be sure to include this authorization token when making requests to the API-- any requests made without authorization will return a 401 Unauthorized error message.
   ![Response Body](IMG/BearerToken.PNG)
